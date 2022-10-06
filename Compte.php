@@ -1,16 +1,22 @@
 <?php
 class Compte {
-    private $user = "Mati";
-    private $cuenta = 1000;
+    private $user;
+    private $diners;
+    private $cuenta;
+    private $moneder;
 
     /**
      * @param string $user
-     * @param int $cuenta
+     * @param int $diners
      */
-    public function __construct($user, $cuenta)
+    public function __construct1()
+    {
+    }
+
+    public function __construct($user, $diners)
     {
         $this->user = $user;
-        $this->cuenta = $cuenta;
+        $this->diners = $diners;
     }
 
     /**
@@ -32,22 +38,34 @@ class Compte {
     /**
      * @return int
      */
-    public function getCuenta()
+    public function getdiners()
     {
-        return $this->cuenta;
+        return $this->diners;
     }
 
     /**
-     * @param int $cuenta
+     * @param int $diners
      */
-    public function setCuenta($cuenta)
+    public function setDiners($diners)
     {
-        $this->cuenta = $cuenta;
+        $this->diners = $diners;
     }
-    function afegir() {
-        $bar = new cuenta( "Mati", 1000);
+    function afegirDiners($x)
+    {
+        $sumaDiners = $this->getdiners() + $x;
+        $this->setDiners($sumaDiners);
+        return $sumaDiners;
+    }
 
-
-
+    function treureDiners($y) {
+        $restaDiners = $this->getdiners() - $y;
+        $this->setDiners($restaDiners);
+        return $restaDiners;
     }
 }
+
+$cuenta = new Compte("Matias",2000);
+echo "". $cuenta->treureDiners(500). "<br>";
+
+echo "". $cuenta->afegirDiners(500);
+?>
